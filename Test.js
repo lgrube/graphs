@@ -1,0 +1,13 @@
+load("Graph.js");
+g = new Graph(9);
+g.addEdge(0,1);
+g.addEdge(0,3);
+g.addEdge(1,2);
+g.addEdge(3,1);
+g.addEdge(3,4);
+g.addEdge(4,2);
+g.addEdge(4,6);
+g.addEdge(4,7);
+g.addEdge(5,7);
+g.addEdge(8,7);
+g.showGraph();
