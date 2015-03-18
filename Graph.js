@@ -30,10 +30,10 @@ function addEdge(v,w) {
 
 function showGraph() {
   for (var i = 0; i < this.vertices; ++i) {
-    print(i + " -> ");
+    write(i + " -> ");
     for (var j = 0; j < this.vertices; ++j) {
       if (this.adj[i][j] != undefined) 
-        print(this.adj[i][j] + ' ');
+        write(this.adj[i][j] + ' ');
     
   }
     print();
@@ -92,7 +92,7 @@ function hasPathTo(v) {
 function showPath(paths) {
 	while (paths.length > 0) {
 		if(paths.length > 1) {
-			print(paths.pop() + '-');
+			write(paths.pop() + '-');
 		}
 		else{
 			print(paths.pop());
