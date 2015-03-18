@@ -12,6 +12,9 @@ g.addEdge(6,7);
 g.addEdge(7,9);
 g.addEdge(8,9);
 g.showGraph();
-g.dfs();
-g.bfs();
-
+//g.dfs(0);
+g.bfs(0); // trying to run this right here just wont print
+var vertex = 4;
+var source = 0;
+var paths = g.pathTo(source, vertex);
+g.showPath(paths);
