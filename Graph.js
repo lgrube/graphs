@@ -19,6 +19,7 @@ function Graph(v) {
   this.pathTo = pathTo;
   this.topSortHelper = topSortHelper;
   this.topSort = topSort
+  this.showPath = showPath;
 }
 
 function addEdge(v,w) {
@@ -29,12 +30,11 @@ function addEdge(v,w) {
 
 function showGraph() {
   for (var i = 0; i < this.vertices; ++i) {
-    putstr(this.vertiexList[i] + " -> ");
+    print(i + " -> ");
     for (var j = 0; j < this.vertices; ++j) {
-      if (this.adj[i][j] !== undefined) {
-        var w = this.adj[i][j];
-        putstr(this.vertexList[w] + ' ');
-    }
+      if (this.adj[i][j] != undefined) 
+        print(this.adj[i][j] + ' ');
+    
   }
     print();
   }
@@ -46,7 +46,7 @@ function dfs(v) {
     print("Visited vertex: " + v);
     }
   for (var i = 0; i < this.adj[v].length; i++) {
-    var w = this.adj[v][w];
+    var w = this.adj[v][i];
     if (!this.marked[w]) {
       this.dfs(w);
       }
@@ -56,13 +56,13 @@ function dfs(v) {
 function bfs(s) {
 	var queue =[];
 	this.marked[s] = true;
-	queue.push(s) //add to back of queue
-		while (queue.lenght > 0) {
+	queue.push(s); //add to back of queue
+		while (queue.length > 0) {
 			var v = queue.shift();
 			if (v !== undefined) {
 				print("Visited vertex: " + v);
 			}
-			for (var i=0; i<this.adj[v].lenght; i++) {
+			for (var i = 0; i < this.adj[v].length; i++) {
 				var w = this.adj[v][i];
 				if(!this.marked[w]) {
 					this.edgeTo[w] =v;
@@ -89,17 +89,17 @@ function hasPathTo(v) {
 	return this.marked[v];
 }
 
-/*function showPath(paths) {
-	while (paths.length >0) {
-		if(paths.lenght >1) {
-			putstr(paths.pop() + '-');
+function showPath(paths) {
+	while (paths.length > 0) {
+		if(paths.length > 1) {
+			print(paths.pop() + '-');
 		}
 		else{
-			putstr(paths.pop());
+			print(paths.pop());
 		}
 	}
 }
-*/
+
 function topSort() {
 	var stack = [];
 	var visited = [];
